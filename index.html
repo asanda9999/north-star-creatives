@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +57,94 @@
     rel="stylesheet"
     href="style.css">
 
+
+  <!-- ==================================================
+       CONSISTENT NON-EMOJI ARROWS
+  =================================================== -->
+
+  <style>
+
+    .north-arrow-icon {
+      display: block;
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      overflow: visible;
+
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.55;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      pointer-events: none;
+    }
+
+
+    /* Keep normal website arrows visible */
+
+    .service-arrow .north-arrow-icon,
+    .premium-button .north-arrow-icon,
+    .hero-scroll-arrow .north-arrow-icon {
+      display: block;
+    }
+
+
+    /* Mobile navigation arrows hidden on desktop */
+
+    .mobile-nav-arrow {
+      display: none;
+
+      width: 20px;
+      height: 20px;
+
+      margin-left: auto;
+
+      color: var(--north-gold, #b68a32);
+
+      opacity: 0.9;
+
+      transition:
+        transform 0.85s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.65s ease;
+    }
+
+
+    @media (max-width: 991px) {
+
+      #one-page-menu .nav-link {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+
+      /* Prevent old CSS arrow characters appearing */
+
+      #one-page-menu .nav-link::after {
+        content: none !important;
+        display: none !important;
+      }
+
+
+      .mobile-nav-arrow {
+        display: block;
+      }
+
+
+      #one-page-menu .nav-link:hover .mobile-nav-arrow,
+      #one-page-menu .nav-link.active .mobile-nav-arrow {
+        transform: translate(3px, -3px);
+        opacity: 1;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 
 <body
@@ -68,20 +154,18 @@
   tabindex="0">
 
 
-  <!-- MOBILE MENU -->
 
-  
 <!-- ==================================================
      MOBILE TOP BAR
 =================================================== -->
 
 <div class="mobile-topbar">
 
+
   <a
     href="#home"
     class="mobile-brand"
-    aria-label="North Star Creatives home"
-  >
+    aria-label="North Star Creatives home">
 
     <span class="mobile-brand-main">
       NORTH STAR
@@ -94,249 +178,474 @@
   </a>
 
 
+
   <button
     class="menu-btn"
     type="button"
     aria-label="Open navigation"
     aria-expanded="false"
-    aria-controls="header-nav"
-  >
+    aria-controls="header-nav">
 
     <span></span>
 
   </button>
 
+
 </div>
 
 
-  <div class="container-fluid page-shell">
+
+<div class="container-fluid page-shell">
 
 
-    <!-- ========================================================
-         SIDEBAR
-    ========================================================= -->
 
-    <header
-      id="header-nav"
-      class="col-lg-2 position-fixed px-4 px-xl-5 north-star-sidebar">
+<!-- ========================================================
+     SIDEBAR
+========================================================= -->
 
-
-      <div class="header-wrap d-flex flex-column justify-content-between">
+<header
+  id="header-nav"
+  class="col-lg-2 position-fixed px-4 px-xl-5 north-star-sidebar">
 
 
-        <div class="navigation">
+  <div class="header-wrap d-flex flex-column justify-content-between">
 
 
-          <div class="site-logo mt-5">
+    <div class="navigation">
+
+
+
+      <!-- BRAND -->
+
+      <div class="site-logo mt-5">
+
+        <a
+          href="#home"
+          class="brand-lockup"
+          aria-label="North Star Creatives home">
+
+          <span class="brand-main">
+            NORTH STAR
+          </span>
+
+          <span class="brand-sub">
+            creatives.
+          </span>
+
+        </a>
+
+      </div>
+
+
+
+      <!-- NAVIGATION -->
+
+      <nav
+        id="one-page-menu"
+        class="vertical-menu my-5">
+
+
+        <ul class="menu-list list-unstyled">
+
+
+
+          <!-- HOME -->
+
+          <li>
 
             <a
               href="#home"
-              class="brand-lockup"
-              aria-label="North Star Creatives home">
+              class="nav-link active">
 
-              <span class="brand-main">
-                NORTH STAR
+              <span class="nav-link-label">
+                Home
               </span>
 
-              <span class="brand-sub">
-                creatives.
-              </span>
+              <svg
+                class="mobile-nav-arrow north-arrow-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false">
+
+                <path d="M7 17L17 7"></path>
+                <path d="M8 7H17V16"></path>
+
+              </svg>
 
             </a>
 
-          </div>
+          </li>
 
 
 
-          <nav
-            id="one-page-menu"
-            class="vertical-menu my-5">
+          <!-- ABOUT -->
+
+          <li>
+
+            <a
+              href="#about"
+              class="nav-link">
+
+              <span class="nav-link-label">
+                About
+              </span>
+
+              <svg
+                class="mobile-nav-arrow north-arrow-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false">
+
+                <path d="M7 17L17 7"></path>
+                <path d="M8 7H17V16"></path>
+
+              </svg>
+
+            </a>
+
+          </li>
 
 
-            <ul class="menu-list list-unstyled">
+
+          <!-- SERVICES -->
+
+          <li>
+
+            <a
+              href="#services"
+              class="nav-link">
+
+              <span class="nav-link-label">
+                What We Do
+              </span>
+
+              <svg
+                class="mobile-nav-arrow north-arrow-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false">
+
+                <path d="M7 17L17 7"></path>
+                <path d="M8 7H17V16"></path>
+
+              </svg>
+
+            </a>
+
+          </li>
 
 
-              <li>
-                <a
-                  href="#home"
-                  class="nav-link active">
-                  Home
-                </a>
-              </li>
+
+          <!-- APPROACH -->
+
+          <li>
+
+            <a
+              href="#approach"
+              class="nav-link">
+
+              <span class="nav-link-label">
+                Our Approach
+              </span>
+
+              <svg
+                class="mobile-nav-arrow north-arrow-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false">
+
+                <path d="M7 17L17 7"></path>
+                <path d="M8 7H17V16"></path>
+
+              </svg>
+
+            </a>
+
+          </li>
 
 
-              <li>
-                <a
-                  href="#about"
-                  class="nav-link">
-                  About
-                </a>
-              </li>
+
+          <!-- LEADERSHIP -->
+
+          <li>
+
+            <a
+              href="#leadership"
+              class="nav-link">
+
+              <span class="nav-link-label">
+                Leadership
+              </span>
+
+              <svg
+                class="mobile-nav-arrow north-arrow-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false">
+
+                <path d="M7 17L17 7"></path>
+                <path d="M8 7H17V16"></path>
+
+              </svg>
+
+            </a>
+
+          </li>
 
 
-              <li>
-                <a
-                  href="#services"
-                  class="nav-link">
-                  What We Do
-                </a>
-              </li>
+
+          <!-- CONTACT -->
+
+          <li>
+
+            <a
+              href="#contact"
+              class="nav-link">
+
+              <span class="nav-link-label">
+                Contact
+              </span>
+
+              <svg
+                class="mobile-nav-arrow north-arrow-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false">
+
+                <path d="M7 17L17 7"></path>
+                <path d="M8 7H17V16"></path>
+
+              </svg>
+
+            </a>
+
+          </li>
 
 
-              <li>
-                <a
-                  href="#approach"
-                  class="nav-link">
-                  Our Approach
-                </a>
-              </li>
+        </ul>
 
 
-              <li>
-                <a
-                  href="#leadership"
-                  class="nav-link">
-                  Leadership
-                </a>
-              </li>
+      </nav>
 
 
-              <li>
-                <a
-                  href="#contact"
-                  class="nav-link">
-                  Contact
-                </a>
-              </li>
+    </div>
 
 
-            </ul>
 
-          </nav>
+    <!-- SIDEBAR CONTACT -->
 
+    <div class="sidebar-contact">
+
+
+      <span class="sidebar-location">
+        Johannesburg · South Africa
+      </span>
+
+
+
+      <div class="email-links mt-3">
+
+
+        <a
+          href="mailto:yolanda@northstarcreative.co.za"
+          class="py-3 border-bottom d-flex">
+
+          yolanda@northstarcreative.co.za
+
+        </a>
+
+
+
+        <a
+          href="tel:+27814119361"
+          class="py-3 border-bottom d-flex">
+
+          +27 81 411 9361
+
+        </a>
+
+
+      </div>
+
+
+
+      <!-- SOCIAL LINKS -->
+
+      <div class="sidebar-socials">
+
+
+
+        <!-- PHONE -->
+
+        <a
+          href="tel:+27814119361"
+          class="sidebar-social-link"
+          aria-label="Call North Star Creatives">
+
+          <svg
+            class="sidebar-social-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- EMAIL -->
+
+        <a
+          href="mailto:yolanda@northstarcreative.co.za"
+          class="sidebar-social-link"
+          aria-label="Email North Star Creatives">
+
+          <svg
+            class="sidebar-social-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- LINKEDIN -->
+
+        <a
+          href="https://www.linkedin.com/company/north-star-creatives/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sidebar-social-link"
+          aria-label="North Star Creatives on LinkedIn">
+
+          <svg
+            class="sidebar-social-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M5.34 3.5A1.84 1.84 0 1 1 5.34 7.18 1.84 1.84 0 0 1 5.34 3.5zM3.75 8.5h3.18V20H3.75V8.5zm5.17 0h3.05v1.57h.04c.43-.8 1.46-1.94 3.01-1.94 3.22 0 3.81 2.12 3.81 4.87V20h-3.17v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.61-2.38 3.27V20H8.92V8.5z"/>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          href="https://www.instagram.com/northstar_creatives?igsi=ZWZ6OWdwNGkxcm1v"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sidebar-social-link"
+          aria-label="North Star Creatives on Instagram">
+
+          <svg
+            class="sidebar-social-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path
+              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm10.25 1.55a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2z"/>
+
+          </svg>
+
+        </a>
+
+
+      </div>
+
+
+
+      <p class="sidebar-tagline mb-2">
+        Guiding brands with purpose.
+      </p>
+
+
+      <div class="sidebar-footer py-4 mt-4">
+
+        <p class="mb-0"></p>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</header>
+
+
+
+<!-- ========================================================
+     MAIN
+========================================================= -->
+
+<main class="col-lg-10 offset-lg-2">
+
+
+<div class="container">
+
+
+<div class="content-shell">
+
+
+
+<!-- ==================================================
+     HOME
+=================================================== -->
+
+<section
+  id="home"
+  class="home-section">
+
+
+  <div class="row align-items-center hero-row">
+
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="col-lg-5">
+
+
+      <div
+        class="hero-visual"
+        data-aos="fade-right"
+        data-aos-duration="1200">
+
+
+        <div class="north-star-symbol">
+          ✦
         </div>
 
 
+        <div class="hero-visual-bottom">
 
-        <div class="sidebar-contact">
 
-
-          <span class="sidebar-location">
+          <span class="section-kicker dark-kicker">
             Johannesburg · South Africa
           </span>
 
 
-          <div class="email-links mt-3">
+          <p class="hero-visual-copy mb-0">
 
+            Strategy.<br>
+            Storytelling.<br>
+            Digital communication.
 
-            <a
-              href="mailto:yolanda@northstarcreative.co.za"
-              class="py-3 border-bottom d-flex">
-
-              yolanda@northstarcreative.co.za
-
-            </a>
-
-
-            <a
-              href="tel:+27814119361"
-              class="py-3 border-bottom d-flex">
-
-              +27 81 411 9361
-
-            </a>
-
-
-          </div>
-
-          
-
-<!-- SOCIAL LINKS -->
-
-<div class="sidebar-socials">
-
-  <!-- PHONE -->
-  <a
-    href="tel:+27814119361"
-    class="sidebar-social-link"
-    aria-label="Call North Star Creatives"
-  >
-    <svg
-      class="sidebar-social-icon"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
-    </svg>
-  </a>
-
-
-  <!-- EMAIL -->
-  <a
-    href="mailto:yolanda@northstarcreative.co.za"
-    class="sidebar-social-link"
-    aria-label="Email North Star Creatives"
-  >
-    <svg
-      class="sidebar-social-icon"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-    </svg>
-  </a>
-
-
-  <!-- LINKEDIN -->
-  <a
-    href=" https://www.linkedin.com/company/north-star-creatives/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="sidebar-social-link"
-    aria-label="North Star Creatives on LinkedIn"
-  >
-    <svg
-      class="sidebar-social-icon"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path d="M5.34 3.5A1.84 1.84 0 1 1 5.34 7.18 1.84 1.84 0 0 1 5.34 3.5zM3.75 8.5h3.18V20H3.75V8.5zm5.17 0h3.05v1.57h.04c.43-.8 1.46-1.94 3.01-1.94 3.22 0 3.81 2.12 3.81 4.87V20h-3.17v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.61-2.38 3.27V20H8.92V8.5z"/>
-    </svg>
-  </a>
-
-
-  <!-- INSTAGRAM -->
-  <a
-    href="https://www.instagram.com/northstar_creatives?igsi=ZWZ6OWdwNGkxcm1v"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="sidebar-social-link"
-    aria-label="North Star Creatives on Instagram"
-  >
-    <svg
-      class="sidebar-social-icon"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm10.25 1.55a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2z"/>
-    </svg>
-  </a>
-
-</div>
-
-          <p class="sidebar-tagline mb-2">
-            Guiding brands with purpose.
           </p>
-
-          <div class="sidebar-footer py-4 mt-4">
-
-
-            <p class="mb-0">
-
-            </p>
-
-
-          </div>
 
 
         </div>
@@ -344,1153 +653,1220 @@
 
       </div>
 
-    </header>
 
+    </div>
 
 
-    <!-- ========================================================
-         MAIN
-    ========================================================= -->
 
-    <main class="col-lg-10 offset-lg-2">
+    <!-- HERO CONTENT -->
 
+    <div class="col-lg-7">
 
-      <div class="container">
 
+      <div
+        class="banner-content"
+        data-aos="fade-up"
+        data-aos-duration="1200">
 
-        <div class="content-shell">
 
+        <span class="section-kicker">
+          Creative agency · Founded 2026
+        </span>
 
 
-          <!-- ==================================================
-               HOME
-          =================================================== -->
+        <h1 class="banner-title display-xl txt-fx slide-up">
 
-          <section
-            id="home"
-            class="home-section">
+          North Star<br>
+          Creatives.
 
+        </h1>
 
-            <div class="row align-items-center hero-row">
 
+        <p class="hero-tagline">
+          Guiding brands with purpose.
+        </p>
 
-              <!-- HERO VISUAL -->
 
-              <div class="col-lg-5">
 
+        <a
+          href="#about"
+          class="hero-scroll-link">
 
-                <div
-                  class="hero-visual"
-                  data-aos="fade-right"
-                  data-aos-duration="1200">
 
+          <span>
+            Discover North Star
+          </span>
 
-                  <div class="north-star-symbol">
-                    ✦
-                  </div>
 
+          <span
+            class="hero-scroll-arrow"
+            aria-hidden="true">
 
-                  <div class="hero-visual-bottom">
 
+            <svg
+              class="north-arrow-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false">
 
-                    <span class="section-kicker dark-kicker">
-                      Johannesburg · South Africa
-                    </span>
+              <path d="M12 5V19"></path>
+              <path d="M7 14L12 19L17 14"></path>
 
+            </svg>
 
-                    <p class="hero-visual-copy mb-0">
 
-                      Strategy.<br>
-                      Storytelling.<br>
-                      Digital communication.
+          </span>
 
-                    </p>
 
+        </a>
 
-                  </div>
 
+      </div>
 
-                </div>
 
-              </div>
+    </div>
 
-
-
-              <!-- HERO CONTENT -->
-
-              <div class="col-lg-7">
-
-
-                <div
-                  class="banner-content"
-                  data-aos="fade-up"
-                  data-aos-duration="1200">
-
-
-                  <span class="section-kicker">
-                    Creative agency · Founded 2026
-                  </span>
-
-
-                  <h1 class="banner-title display-xl txt-fx slide-up">
-
-                    North Star<br>
-                    Creatives.
-
-                  </h1>
-
-
-                  <p class="hero-tagline">
-                    Guiding brands with purpose.
-                  </p>
-
-
-                  <a
-                    href="#about"
-                    class="hero-scroll-link">
-
-
-                    <span>
-                      Discover North Star
-                    </span>
-
-
-                    <span
-                      class="hero-scroll-arrow"
-                      aria-hidden="true">
-
-                      ↓
-
-                    </span>
-
-
-                  </a>
-
-
-                </div>
-
-              </div>
-
-
-            </div>
-
-
-
-            <!-- PRINCIPLES -->
-
-            <div class="row g-4 hero-principles">
-
-
-              <div class="col-lg-3 col-md-6">
-
-
-                <div
-                  class="north-star-mini-card"
-                  data-aos="fade-up"
-                  data-aos-duration="1200">
-
-
-                  <span class="mini-number">
-                    01
-                  </span>
-
-
-                  <h3>
-                    Strategy-led
-                  </h3>
-
-
-                  <p>
-
-                    Clarity comes first. Creative decisions
-                    connect directly to business objectives.
-
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-
-              <div class="col-lg-3 col-md-6">
-
-
-                <div
-                  class="north-star-mini-card"
-                  data-aos="fade-up"
-                  data-aos-delay="80"
-                  data-aos-duration="1200">
-
-
-                  <span class="mini-number">
-                    02
-                  </span>
-
-
-                  <h3>
-                    Human-first
-                  </h3>
-
-
-                  <p>
-
-                    Marketing designed to move people,
-                    not simply chase impressions.
-
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-
-              <div class="col-lg-3 col-md-6">
-
-
-                <div
-                  class="north-star-mini-card"
-                  data-aos="fade-up"
-                  data-aos-delay="160"
-                  data-aos-duration="1200">
-
-
-                  <span class="mini-number">
-                    03
-                  </span>
-
-
-                  <h3>
-                    Built for growth
-                  </h3>
-
-
-                  <p>
-
-                    Thoughtful content ecosystems built for
-                    relevance, consistency and impact.
-
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-
-              <div class="col-lg-3 col-md-6">
-
-
-                <div
-                  class="hero-cta-card"
-                  data-aos="fade-up"
-                  data-aos-delay="240"
-                  data-aos-duration="1200">
-
-
-                  <a
-                    href="#services"
-                    class="premium-button w-100">
-
-
-                    <span>
-                      Explore What We Do
-                    </span>
-
-
-                    <span aria-hidden="true">
-                      ↘
-                    </span>
-
-
-                  </a>
-
-
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-          </section>
-
-
-
-          <!-- ==================================================
-               ABOUT
-          =================================================== -->
-
-          <section
-            id="about"
-            class="section-space standard-section">
-
-
-            <div class="row g-5 align-items-start">
-
-
-              <div
-                class="col-lg-5"
-                data-aos="fade-up"
-                data-aos-duration="1200">
-
-
-                <span class="section-kicker">
-                  About Us
-                </span>
-
-
-                <h2 class="display-2 section-title">
-
-                  Nine years<br>
-                  in the making.
-
-                </h2>
-
-
-                <p class="lead mt-4">
-                  Newly named, not new to this.
-                </p>
-
-
-              </div>
-
-
-
-              <div
-                class="col-lg-7 about-copy"
-                data-aos="fade-up"
-                data-aos-delay="100"
-                data-aos-duration="1200">
-
-
-                <p class="lead">
-
-                  North Star Creatives is a forward-thinking
-                  creative agency built on nine years of hands-on
-                  industry experience, formally founded in 2026
-                  and based in Johannesburg.
-
-                </p>
-
-
-                <p>
-
-                  We operate at the intersection of strategy,
-                  storytelling and digital communication — helping
-                  brands build relevance, influence and measurable
-                  impact through digital marketing, influencer
-                  marketing and content creation.
-
-                </p>
-
-
-                <p>
-
-                  We develop thoughtful marketing and content
-                  ecosystems that extend beyond visibility,
-                  ensuring every brand touchpoint is intentional,
-                  consistent and aligned to long-term growth.
-
-                </p>
-
-
-                <p>
-
-                  Guided by the idea of the north star, we serve
-                  as a constant reference point for brands
-                  navigating complexity, change and growth.
-
-                </p>
-
-
-              </div>
-
-
-            </div>
-
-
-
-            <!-- MISSION / VISION -->
-
-            <div class="row g-4 mission-row">
-
-
-              <div class="col-lg-6">
-
-
-                <div
-                  class="mission-card"
-                  data-aos="fade-up"
-                  data-aos-duration="1200">
-
-
-                  <span class="section-kicker">
-                    Our Mission
-                  </span>
-
-
-                  <h3 class="display-6">
-                    A steady reference point.
-                  </h3>
-
-
-                  <p>
-
-                    We guide brands through the noise of digital
-                    with the same certainty as a north star —
-                    steady when everyone else is guessing,
-                    bold when it counts, and always pointing
-                    toward growth that means something.
-
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-
-              <div class="col-lg-6">
-
-
-                <div
-                  class="mission-card"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  data-aos-duration="1200">
-
-
-                  <span class="section-kicker">
-                    Our Vision
-                  </span>
-
-
-                  <h3 class="display-6">
-                    Marketing that feels human.
-                  </h3>
-
-
-                  <p>
-
-                    To be the partner South African brands
-                    turn to for digital marketing where
-                    strategy has soul, content has a pulse,
-                    and every partnership moves people,
-                    not just metrics.
-
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-            </div>
-
-
-          </section>
-
-
-
-          <!-- ==================================================
-               WHAT WE DO
-          =================================================== -->
-
-          <section
-            id="services"
-            class="section-space standard-section">
-
-
-            <div class="services-heading row justify-content-between align-items-end">
-
-
-              <div
-                class="col-lg-7"
-                data-aos="fade-up"
-                data-aos-duration="1200">
-
-
-                <span class="section-kicker">
-                  What We Do
-                </span>
-
-
-                <h2 class="display-1 section-title">
-
-                  Six disciplines,<br>
-                  one clear direction.
-
-                </h2>
-
-
-              </div>
-
-
-
-              <div
-                class="col-lg-4"
-                data-aos="fade-up"
-                data-aos-delay="100"
-                data-aos-duration="1200">
-
-
-                <p class="services-intro mb-0">
-
-                  Strategic marketing, digital communications
-                  and creative consulting designed to help
-                  brands grow with clarity and impact.
-
-                </p>
-
-
-              </div>
-
-
-            </div>
-
-
-
-            <div class="service-list">
-
-
-              <article
-                class="service-row"
-                data-aos="fade-up"
-                data-aos-duration="1200">
-
-
-                <span class="service-number">
-                  01
-                </span>
-
-
-                <div class="service-content">
-
-
-                  <h3>
-                    Event Coverage, Content Strategy &
-                    Audience Engagement
-                  </h3>
-
-
-                  <p>
-
-                    Real-time storytelling and content direction
-                    that turns live brand moments into sustained
-                    digital engagement.
-
-                  </p>
-
-
-                </div>
-
-
-                <span
-                  class="service-arrow"
-                  aria-hidden="true">
-                  ↗
-                </span>
-
-
-              </article>
-
-
-
-              <article
-                class="service-row"
-                data-aos="fade-up"
-                data-aos-delay="60"
-                data-aos-duration="1200">
-
-
-                <span class="service-number">
-                  02
-                </span>
-
-
-                <div class="service-content">
-
-
-                  <h3>
-                    Influencer Strategy & Campaign Management
-                  </h3>
-
-
-                  <p>
-
-                    End-to-end influencer campaigns — from
-                    concept and creator strategy through to
-                    execution and performance analysis.
-
-                  </p>
-
-
-                </div>
-
-
-                <span
-                  class="service-arrow"
-                  aria-hidden="true">
-                  ↗
-                </span>
-
-
-              </article>
-
-
-
-              <article
-                class="service-row"
-                data-aos="fade-up"
-                data-aos-delay="120"
-                data-aos-duration="1200">
-
-
-                <span class="service-number">
-                  03
-                </span>
-
-
-                <div class="service-content">
-
-
-                  <h3>
-                    Content Strategy & Production
-                  </h3>
-
-
-                  <p>
-
-                    Platform-led content systems, backed by
-                    production direction and UGC frameworks
-                    built for authenticity and cultural relevance.
-
-                  </p>
-
-
-                </div>
-
-
-                <span
-                  class="service-arrow"
-                  aria-hidden="true">
-                  ↗
-                </span>
-
-
-              </article>
-
-
-
-              <article
-                class="service-row"
-                data-aos="fade-up"
-                data-aos-delay="180"
-                data-aos-duration="1200">
-
-
-                <span class="service-number">
-                  04
-                </span>
-
-
-                <div class="service-content">
-
-
-                  <h3>
-
-                    Paid Media Strategy & Management
-
-                    <span class="service-detail">
-                      Meta & Google Ads
-                    </span>
-
-                  </h3>
-
-
-                  <p>
-
-                    Performance-driven media planning,
-                    execution and optimisation focused on
-                    reach, conversions and ROI.
-
-                  </p>
-
-
-                </div>
-
-
-                <span
-                  class="service-arrow"
-                  aria-hidden="true">
-                  ↗
-                </span>
-
-
-              </article>
-
-
-
-              <article
-                class="service-row"
-                data-aos="fade-up"
-                data-aos-delay="240"
-                data-aos-duration="1200">
-
-
-                <span class="service-number">
-                  05
-                </span>
-
-
-                <div class="service-content">
-
-
-                  <h3>
-
-                    Thought Leadership & B2B Content Strategy
-
-                    <span class="service-detail">
-                      LinkedIn-focused
-                    </span>
-
-                  </h3>
-
-
-                  <p>
-
-                    Specialised content strategy for leaders
-                    and brands building authority and influence
-                    within professional spaces.
-
-                  </p>
-
-
-                </div>
-
-
-                <span
-                  class="service-arrow"
-                  aria-hidden="true">
-                  ↗
-                </span>
-
-
-              </article>
-
-
-
-              <article
-                class="service-row"
-                data-aos="fade-up"
-                data-aos-delay="300"
-                data-aos-duration="1200">
-
-
-                <span class="service-number">
-                  06
-                </span>
-
-
-                <div class="service-content">
-
-
-                  <h3>
-
-                    Web Development & Digital Experiences
-
-                  </h3>
-
-
-                  <p>
-
-                    Custom website development and digital experiences
-                    designed to convert, engage and deliver measurable
-                    results for your brand.
-
-                  </p>
-
-
-                </div>
-
-
-                <span
-                  class="service-arrow"
-                  aria-hidden="true">
-                  ↗
-                </span>
-
-
-              </article>
-
-
-            </div>
-
-
-          </section>
-
-
-
-          <!-- ==================================================
-               APPROACH
-          =================================================== -->
-
-          <section
-            id="approach"
-            class="section-space standard-section">
-
-
-            <div class="row g-5">
-
-
-              <div
-                class="col-lg-5"
-                data-aos="fade-up"
-                data-aos-duration="1200">
-
-
-                <span class="section-kicker">
-                  Our Approach
-                </span>
-
-
-                <h2 class="display-1 section-title">
-
-                  Strategy<br>
-                  before execution.
-
-                </h2>
-
-
-                <p class="lead mt-4">
-
-                  We don’t believe in disconnected
-                  content or reactive marketing.
-
-                </p>
-
-
-              </div>
-
-
-
-              <div
-                class="col-lg-7"
-                data-aos="fade-up"
-                data-aos-delay="100"
-                data-aos-duration="1200">
-
-
-                <div class="approach-card">
-
-
-                  <span class="service-number">
-                    01
-                  </span>
-
-
-                  <h3>
-                    Strategy before execution
-                  </h3>
-
-
-                  <p>
-
-                    Clarity drives creative direction.
-                    Every project is designed to strengthen
-                    how a brand thinks, speaks and shows up
-                    across channels.
-
-                  </p>
-
-
-                </div>
-
-
-
-                <div class="approach-card">
-
-
-                  <span class="service-number">
-                    02
-                  </span>
-
-
-                  <h3>
-                    Systems over single outputs
-                  </h3>
-
-
-                  <p>
-                    We build ecosystems, not isolated campaigns.
-                  </p>
-
-
-                </div>
-
-
-
-                <div class="approach-card">
-
-
-                  <span class="service-number">
-                    03
-                  </span>
-
-
-                  <h3>
-                    Relevance with intention
-                  </h3>
-
-
-                  <p>
-                    Content must earn attention, not chase it.
-                  </p>
-
-
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-
-            <!-- WHY NORTH STAR -->
-
-            <div
-              class="statement-block"
-              data-aos="fade-up"
-              data-aos-duration="1200">
-
-
-              <span class="section-kicker dark-kicker">
-                Why North Star
-              </span>
-
-
-              <h2 class="display-2">
-
-                Visibility isn’t<br>
-                the challenge.<br>
-
-                <span class="brand-gold">
-                  Direction is.
-                </span>
-
-
-              </h2>
-
-
-              <div class="row statement-copy">
-
-
-                <div class="col-lg-8">
-
-
-                  <p class="lead">
-
-                    In a saturated digital landscape,
-                    North Star Creatives exists to bring
-                    focus to brand communication.
-
-                  </p>
-
-
-                  <p>
-
-                    We help brands understand what to say,
-                    where to show up, and how to stay
-                    consistent while evolving. We are the
-                    reference point — ensuring brands don’t
-                    just participate in culture, but move
-                    through it with clarity and purpose.
-
-                  </p>
-
-
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-
-            <!-- VALUES -->
-
-            <div class="row g-4 values-row">
-
-
-              <div class="col-lg-4">
-
-
-                <div
-                  class="value-card"
-                  data-aos="fade-up"
-                  data-aos-duration="1200">
-
-
-                  <span class="section-kicker">
-                    Human first.
-                  </span>
-
-
-                  <h3>
-                    Real relationships come first.
-                  </h3>
-
-
-                  <p>
-                    The work that follows is built to make an impact.
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-
-              <div class="col-lg-4">
-
-
-                <div
-                  class="value-card"
-                  data-aos="fade-up"
-                  data-aos-delay="80"
-                  data-aos-duration="1200">
-
-
-                  <span class="section-kicker">
-                    Bold always.
-                  </span>
-
-
-                  <h3>
-                    Bold execution.
-                  </h3>
-
-
-                  <p>
-
-                    Once the strategy is set, we deliver
-                    with confidence — no second-guessing,
-                    no watered-down ideas.
-
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-
-              <div class="col-lg-4">
-
-
-                <div
-                  class="value-card"
-                  data-aos="fade-up"
-                  data-aos-delay="160"
-                  data-aos-duration="1200">
-
-
-                  <span class="section-kicker">
-                    Local insight.
-                  </span>
-
-
-                  <h3>
-                    Global standard.
-                  </h3>
-
-
-                  <p>
-
-                    Johannesburg roots, world-class output.
-                    We know this market because we live in it.
-
-                  </p>
-
-
-                </div>
-
-              </div>
-
-
-            </div>
-
-
-          </section>
-
-
-
-          <!-- ==================================================
-               LEADERSHIP
-          =================================================== -->
-
-<section
-  id="leadership"
-  class="section-space standard-section"
->
-
-
-  <!-- ==================================================
-       LEADERSHIP HEADER
-  =================================================== -->
-
-  <div
-    class="leadership-header"
-    data-aos="fade-up"
-    data-aos-duration="1200"
-  >
-
-    <span class="section-kicker">
-      Leadership
-    </span>
-
-    <h2 class="leadership-heading">
-      The strategist behind the work.
-    </h2>
 
   </div>
 
 
 
-  <!-- ==================================================
-       FOUNDER BIO
-  =================================================== -->
+  <!-- PRINCIPLES -->
+
+  <div class="row g-4 hero-principles">
+
+
+
+    <div class="col-lg-3 col-md-6">
+
+
+      <div
+        class="north-star-mini-card"
+        data-aos="fade-up"
+        data-aos-duration="1200">
+
+
+        <span class="mini-number">
+          01
+        </span>
+
+
+        <h3>
+          Strategy-led
+        </h3>
+
+
+        <p>
+
+          Clarity comes first. Creative decisions
+          connect directly to business objectives.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="col-lg-3 col-md-6">
+
+
+      <div
+        class="north-star-mini-card"
+        data-aos="fade-up"
+        data-aos-delay="80"
+        data-aos-duration="1200">
+
+
+        <span class="mini-number">
+          02
+        </span>
+
+
+        <h3>
+          Human-first
+        </h3>
+
+
+        <p>
+
+          Marketing designed to move people,
+          not simply chase impressions.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="col-lg-3 col-md-6">
+
+
+      <div
+        class="north-star-mini-card"
+        data-aos="fade-up"
+        data-aos-delay="160"
+        data-aos-duration="1200">
+
+
+        <span class="mini-number">
+          03
+        </span>
+
+
+        <h3>
+          Built for growth
+        </h3>
+
+
+        <p>
+
+          Thoughtful content ecosystems built for
+          relevance, consistency and impact.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="col-lg-3 col-md-6">
+
+
+      <div
+        class="hero-cta-card"
+        data-aos="fade-up"
+        data-aos-delay="240"
+        data-aos-duration="1200">
+
+
+        <a
+          href="#services"
+          class="premium-button w-100">
+
+
+          <span>
+            Explore What We Do
+          </span>
+
+
+          <span aria-hidden="true">
+
+
+            <svg
+              class="north-arrow-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false">
+
+              <path d="M7 7L17 17"></path>
+              <path d="M8 17H17V8"></path>
+
+            </svg>
+
+
+          </span>
+
+
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+=================================================== -->
+
+<section
+  id="about"
+  class="section-space standard-section">
+
+
+  <div class="row g-5 align-items-start">
+
+
+
+    <div
+      class="col-lg-5"
+      data-aos="fade-up"
+      data-aos-duration="1200">
+
+
+      <span class="section-kicker">
+        About Us
+      </span>
+
+
+      <h2 class="display-2 section-title">
+
+        Nine years<br>
+        in the making.
+
+      </h2>
+
+
+      <p class="lead mt-4">
+        Newly named, not new to this.
+      </p>
+
+
+    </div>
+
+
+
+    <div
+      class="col-lg-7 about-copy"
+      data-aos="fade-up"
+      data-aos-delay="100"
+      data-aos-duration="1200">
+
+
+      <p class="lead">
+
+        North Star Creatives is a forward-thinking
+        creative agency built on nine years of hands-on
+        industry experience, formally founded in 2026
+        and based in Johannesburg.
+
+      </p>
+
+
+      <p>
+
+        We operate at the intersection of strategy,
+        storytelling and digital communication — helping
+        brands build relevance, influence and measurable
+        impact through digital marketing, influencer
+        marketing and content creation.
+
+      </p>
+
+
+      <p>
+
+        We develop thoughtful marketing and content
+        ecosystems that extend beyond visibility,
+        ensuring every brand touchpoint is intentional,
+        consistent and aligned to long-term growth.
+
+      </p>
+
+
+      <p>
+
+        Guided by the idea of the north star, we serve
+        as a constant reference point for brands
+        navigating complexity, change and growth.
+
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- MISSION / VISION -->
+
+  <div class="row g-4 mission-row">
+
+
+
+    <div class="col-lg-6">
+
+
+      <div
+        class="mission-card"
+        data-aos="fade-up"
+        data-aos-duration="1200">
+
+
+        <span class="section-kicker">
+          Our Mission
+        </span>
+
+
+        <h3 class="display-6">
+          A steady reference point.
+        </h3>
+
+
+        <p>
+
+          We guide brands through the noise of digital
+          with the same certainty as a north star —
+          steady when everyone else is guessing,
+          bold when it counts, and always pointing
+          toward growth that means something.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="col-lg-6">
+
+
+      <div
+        class="mission-card"
+        data-aos="fade-up"
+        data-aos-delay="100"
+        data-aos-duration="1200">
+
+
+        <span class="section-kicker">
+          Our Vision
+        </span>
+
+
+        <h3 class="display-6">
+          Marketing that feels human.
+        </h3>
+
+
+        <p>
+
+          To be the partner South African brands
+          turn to for digital marketing where
+          strategy has soul, content has a pulse,
+          and every partnership moves people,
+          not just metrics.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     WHAT WE DO
+=================================================== -->
+
+<section
+  id="services"
+  class="section-space standard-section">
+
+
+  <div class="services-heading row justify-content-between align-items-end">
+
+
+
+    <div
+      class="col-lg-7"
+      data-aos="fade-up"
+      data-aos-duration="1200">
+
+
+      <span class="section-kicker">
+        What We Do
+      </span>
+
+
+      <h2 class="display-1 section-title">
+
+        Six disciplines,<br>
+        one clear direction.
+
+      </h2>
+
+
+    </div>
+
+
+
+    <div
+      class="col-lg-4"
+      data-aos="fade-up"
+      data-aos-delay="100"
+      data-aos-duration="1200">
+
+
+      <p class="services-intro mb-0">
+
+        Strategic marketing, digital communications
+        and creative consulting designed to help
+        brands grow with clarity and impact.
+
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="service-list">
+
+
+
+    <!-- SERVICE 01 -->
+
+    <article
+      class="service-row"
+      data-aos="fade-up"
+      data-aos-duration="1200">
+
+
+      <span class="service-number">
+        01
+      </span>
+
+
+      <div class="service-content">
+
+
+        <h3>
+
+          Event Coverage, Content Strategy &
+          Audience Engagement
+
+        </h3>
+
+
+        <p>
+
+          Real-time storytelling and content direction
+          that turns live brand moments into sustained
+          digital engagement.
+
+        </p>
+
+
+      </div>
+
+
+      <span
+        class="service-arrow"
+        aria-hidden="true">
+
+
+        <svg
+          class="north-arrow-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false">
+
+          <path d="M7 17L17 7"></path>
+          <path d="M8 7H17V16"></path>
+
+        </svg>
+
+
+      </span>
+
+
+    </article>
+
+
+
+    <!-- SERVICE 02 -->
+
+    <article
+      class="service-row"
+      data-aos="fade-up"
+      data-aos-delay="60"
+      data-aos-duration="1200">
+
+
+      <span class="service-number">
+        02
+      </span>
+
+
+      <div class="service-content">
+
+
+        <h3>
+          Influencer Strategy & Campaign Management
+        </h3>
+
+
+        <p>
+
+          End-to-end influencer campaigns — from
+          concept and creator strategy through to
+          execution and performance analysis.
+
+        </p>
+
+
+      </div>
+
+
+      <span
+        class="service-arrow"
+        aria-hidden="true">
+
+
+        <svg
+          class="north-arrow-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false">
+
+          <path d="M7 17L17 7"></path>
+          <path d="M8 7H17V16"></path>
+
+        </svg>
+
+
+      </span>
+
+
+    </article>
+
+
+
+    <!-- SERVICE 03 -->
+
+    <article
+      class="service-row"
+      data-aos="fade-up"
+      data-aos-delay="120"
+      data-aos-duration="1200">
+
+
+      <span class="service-number">
+        03
+      </span>
+
+
+      <div class="service-content">
+
+
+        <h3>
+          Content Strategy & Production
+        </h3>
+
+
+        <p>
+
+          Platform-led content systems, backed by
+          production direction and UGC frameworks
+          built for authenticity and cultural relevance.
+
+        </p>
+
+
+      </div>
+
+
+      <span
+        class="service-arrow"
+        aria-hidden="true">
+
+
+        <svg
+          class="north-arrow-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false">
+
+          <path d="M7 17L17 7"></path>
+          <path d="M8 7H17V16"></path>
+
+        </svg>
+
+
+      </span>
+
+
+    </article>
+
+
+
+    <!-- SERVICE 04 -->
+
+    <article
+      class="service-row"
+      data-aos="fade-up"
+      data-aos-delay="180"
+      data-aos-duration="1200">
+
+
+      <span class="service-number">
+        04
+      </span>
+
+
+      <div class="service-content">
+
+
+        <h3>
+
+          Paid Media Strategy & Management
+
+          <span class="service-detail">
+            Meta & Google Ads
+          </span>
+
+        </h3>
+
+
+        <p>
+
+          Performance-driven media planning,
+          execution and optimisation focused on
+          reach, conversions and ROI.
+
+        </p>
+
+
+      </div>
+
+
+      <span
+        class="service-arrow"
+        aria-hidden="true">
+
+
+        <svg
+          class="north-arrow-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false">
+
+          <path d="M7 17L17 7"></path>
+          <path d="M8 7H17V16"></path>
+
+        </svg>
+
+
+      </span>
+
+
+    </article>
+
+
+
+    <!-- SERVICE 05 -->
+
+    <article
+      class="service-row"
+      data-aos="fade-up"
+      data-aos-delay="240"
+      data-aos-duration="1200">
+
+
+      <span class="service-number">
+        05
+      </span>
+
+
+      <div class="service-content">
+
+
+        <h3>
+
+          Thought Leadership & B2B Content Strategy
+
+          <span class="service-detail">
+            LinkedIn-focused
+          </span>
+
+        </h3>
+
+
+        <p>
+
+          Specialised content strategy for leaders
+          and brands building authority and influence
+          within professional spaces.
+
+        </p>
+
+
+      </div>
+
+
+      <span
+        class="service-arrow"
+        aria-hidden="true">
+
+
+        <svg
+          class="north-arrow-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false">
+
+          <path d="M7 17L17 7"></path>
+          <path d="M8 7H17V16"></path>
+
+        </svg>
+
+
+      </span>
+
+
+    </article>
+
+
+
+    <!-- SERVICE 06 -->
+
+    <article
+      class="service-row"
+      data-aos="fade-up"
+      data-aos-delay="300"
+      data-aos-duration="1200">
+
+
+      <span class="service-number">
+        06
+      </span>
+
+
+      <div class="service-content">
+
+
+        <h3>
+          Web Development & Digital Experiences
+        </h3>
+
+
+        <p>
+
+          Custom website development and digital experiences
+          designed to convert, engage and deliver measurable
+          results for your brand.
+
+        </p>
+
+
+      </div>
+
+
+      <span
+        class="service-arrow"
+        aria-hidden="true">
+
+
+        <svg
+          class="north-arrow-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false">
+
+          <path d="M7 17L17 7"></path>
+          <path d="M8 7H17V16"></path>
+
+        </svg>
+
+
+      </span>
+
+
+    </article>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     APPROACH
+=================================================== -->
+
+<section
+  id="approach"
+  class="section-space standard-section">
+
+
+  <div class="row g-5">
+
+
+
+    <div
+      class="col-lg-5"
+      data-aos="fade-up"
+      data-aos-duration="1200">
+
+
+      <span class="section-kicker">
+        Our Approach
+      </span>
+
+
+      <h2 class="display-1 section-title">
+
+        Strategy<br>
+        before execution.
+
+      </h2>
+
+
+      <p class="lead mt-4">
+
+        We don’t believe in disconnected
+        content or reactive marketing.
+
+      </p>
+
+
+    </div>
+
+
+
+    <div
+      class="col-lg-7"
+      data-aos="fade-up"
+      data-aos-delay="100"
+      data-aos-duration="1200">
+
+
+
+      <div class="approach-card">
+
+
+        <span class="service-number">
+          01
+        </span>
+
+
+        <h3>
+          Strategy before execution
+        </h3>
+
+
+        <p>
+
+          Clarity drives creative direction.
+          Every project is designed to strengthen
+          how a brand thinks, speaks and shows up
+          across channels.
+
+        </p>
+
+
+      </div>
+
+
+
+      <div class="approach-card">
+
+
+        <span class="service-number">
+          02
+        </span>
+
+
+        <h3>
+          Systems over single outputs
+        </h3>
+
+
+        <p>
+          We build ecosystems, not isolated campaigns.
+        </p>
+
+
+      </div>
+
+
+
+      <div class="approach-card">
+
+
+        <span class="service-number">
+          03
+        </span>
+
+
+        <h3>
+          Relevance with intention
+        </h3>
+
+
+        <p>
+          Content must earn attention, not chase it.
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- WHY NORTH STAR -->
+
+  <div
+    class="statement-block"
+    data-aos="fade-up"
+    data-aos-duration="1200">
+
+
+    <span class="section-kicker dark-kicker">
+      Why North Star
+    </span>
+
+
+    <h2 class="display-2">
+
+      Visibility isn’t<br>
+      the challenge.<br>
+
+      <span class="brand-gold">
+        Direction is.
+      </span>
+
+    </h2>
+
+
+
+    <div class="row statement-copy">
+
+
+      <div class="col-lg-8">
+
+
+        <p class="lead">
+
+          In a saturated digital landscape,
+          North Star Creatives exists to bring
+          focus to brand communication.
+
+        </p>
+
+
+        <p>
+
+          We help brands understand what to say,
+          where to show up, and how to stay
+          consistent while evolving. We are the
+          reference point — ensuring brands don’t
+          just participate in culture, but move
+          through it with clarity and purpose.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- VALUES -->
+
+  <div class="row g-4 values-row">
+
+
+
+    <div class="col-lg-4">
+
+
+      <div
+        class="value-card"
+        data-aos="fade-up"
+        data-aos-duration="1200">
+
+
+        <span class="section-kicker">
+          Human first.
+        </span>
+
+
+        <h3>
+          Real relationships come first.
+        </h3>
+
+
+        <p>
+          The work that follows is built to make an impact.
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="col-lg-4">
+
+
+      <div
+        class="value-card"
+        data-aos="fade-up"
+        data-aos-delay="80"
+        data-aos-duration="1200">
+
+
+        <span class="section-kicker">
+          Bold always.
+        </span>
+
+
+        <h3>
+          Bold execution.
+        </h3>
+
+
+        <p>
+
+          Once the strategy is set, we deliver
+          with confidence — no second-guessing,
+          no watered-down ideas.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="col-lg-4">
+
+
+      <div
+        class="value-card"
+        data-aos="fade-up"
+        data-aos-delay="160"
+        data-aos-duration="1200">
+
+
+        <span class="section-kicker">
+          Local insight.
+        </span>
+
+
+        <h3>
+          Global standard.
+        </h3>
+
+
+        <p>
+
+          Johannesburg roots, world-class output.
+          We know this market because we live in it.
+
+        </p>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     LEADERSHIP
+=================================================== -->
+
+<section
+  id="leadership"
+  class="section-space standard-section">
+
+
+
+  <!-- LEADERSHIP HEADER -->
+
+  <div
+    class="leadership-header"
+    data-aos="fade-up"
+    data-aos-duration="1200">
+
+
+    <span class="section-kicker">
+      Leadership
+    </span>
+
+
+    <h2 class="leadership-heading">
+      The strategist behind the work.
+    </h2>
+
+
+  </div>
+
+
+
+  <!-- FOUNDER BIO -->
 
   <div
     class="leadership-bio"
     data-aos="fade-up"
     data-aos-delay="100"
-    data-aos-duration="1200"
-  >
+    data-aos-duration="1200">
+
 
     <div class="leader-photo-wrap">
+
 
       <img
         src="images/Yolanda.jpg"
         alt="Yolanda Mkhize"
         class="leader-photo">
 
+
     </div>
+
+
 
     <div class="leadership-bio-inner">
 
@@ -1548,306 +1924,337 @@
 
     </div>
 
-  </div>
-
-
-            <!-- INDUSTRY EXPERIENCE -->
-
-        <!-- ==================================================
-     INDUSTRY EXPERIENCE
-=================================================== -->
-
-<!-- ==================================================
-     INDUSTRY EXPERIENCE
-=================================================== -->
-
-<div
-  class="leadership-experience"
-  data-aos="fade-up"
-  data-aos-duration="1200"
->
-
-
-  <!-- HEADER ABOVE LOGOS -->
-
-  <div class="experience-header">
-
-    <span class="section-kicker">
-      Industry Experience
-    </span>
-
-
-    <h3 class="experience-title">
-      Experience shaped across established brands and sectors.
-    </h3>
-
-
-    <p class="experience-intro">
-      Brands Yolanda has shaped strategy for across her career.
-    </p>
 
   </div>
 
 
 
-  <!-- FULL-WIDTH LOGO PANEL -->
+  <!-- ==================================================
+       INDUSTRY EXPERIENCE
+  =================================================== -->
 
-  <div class="industry-panel-wrap">
-
-    <img
-      src="images/industry-experience-logos.png"
-      alt="Brands Yolanda has shaped strategy for, including MTN, Samsung, Avon, ORS Haircare, Justine, Anglo American and RMB"
-      class="industry-panel-image"
-    >
-
-  </div>
+  <div
+    class="leadership-experience"
+    data-aos="fade-up"
+    data-aos-duration="1200">
 
 
 
-  <!-- METRICS -->
-
-  <div class="leadership-metrics">
+    <div class="experience-header">
 
 
-    <div class="metric-item">
-
-      <span class="metric-number">
-        9+
+      <span class="section-kicker">
+        Industry Experience
       </span>
 
-      <span class="metric-label">
-        Years of industry experience
-      </span>
+
+      <h3 class="experience-title">
+
+        Experience shaped across established brands and sectors.
+
+      </h3>
+
+
+      <p class="experience-intro">
+
+        Brands Yolanda has shaped strategy for across her career.
+
+      </p>
+
 
     </div>
 
 
-    <div class="metric-item">
 
-      <span class="metric-number">
-        7
-      </span>
+    <div class="industry-panel-wrap">
 
-      <span class="metric-label">
-        Established brands highlighted across her career
-      </span>
+
+      <img
+        src="images/industry-experience-logos.png"
+        alt="Brands Yolanda has shaped strategy for, including MTN, Samsung, Avon, ORS Haircare, Justine, Anglo American and RMB"
+        class="industry-panel-image">
+
 
     </div>
 
 
-    <div class="metric-item">
 
-      <span class="metric-number">
-        5
-      </span>
+    <!-- METRICS -->
 
-      <span class="metric-label">
-        Core industry sectors of experience
-      </span>
+    <div class="leadership-metrics">
 
-    </div>
 
 
-  </div>
+      <div class="metric-item">
 
 
-</div>
+        <span class="metric-number">
+          9+
+        </span>
 
 
-          </section>
+        <span class="metric-label">
+          Years of industry experience
+        </span>
 
-
-
-          <!-- ==================================================
-               CONTACT
-          =================================================== -->
-
-          <section
-            id="contact"
-            class="section-space contact-section">
-
-
-            <div
-              class="contact-panel"
-              data-aos="fade-up"
-              data-aos-duration="1200">
-
-
-              <div class="row g-5 align-items-center">
-
-
-                <div class="col-lg-7">
-
-
-                  <span class="section-kicker">
-                    Let's Talk
-                  </span>
-
-
-                  <h2 class="display-1 contact-title">
-
-                    Not louder.<br>
-                    More aligned.<br>
-                    More intentional.<br>
-
-                    <span class="brand-gold">
-                      More effective.
-                    </span>
-
-
-                  </h2>
-
-
-                  <p class="lead contact-intro">
-
-                    North Star Creatives is where
-                    strategy meets storytelling,
-                    and where brands find their direction.
-
-                  </p>
-
-
-                </div>
-
-
-
-                <div class="col-lg-5">
-
-
-                  <div class="contact-details">
-
-
-                    <h3>
-                      Start a conversation.
-                    </h3>
-
-
-                    <p class="contact-copy">
-
-                      For project enquiries, partnerships
-                      or strategic support, get in touch
-                      with Yolanda.
-
-                    </p>
-
-
-
-                    <a
-                      href="mailto:yolanda@northstarcreative.co.za"
-                      class="contact-link">
-
-
-                      <span>
-                        Email
-                      </span>
-
-
-                      <span>
-                        yolanda@northstarcreative.co.za
-                      </span>
-
-
-                    </a>
-
-
-
-                    <a
-                      href="tel:+27814119361"
-                      class="contact-link">
-
-
-                      <span>
-                        Phone
-                      </span>
-
-
-                      <span>
-                        +27 81 411 9361
-                      </span>
-
-
-                    </a>
-
-
-
-                    <div class="contact-link no-link">
-
-
-                      <span>
-                        Location
-                      </span>
-
-
-                      <span>
-                        Johannesburg, South Africa
-                      </span>
-
-
-                    </div>
-
-
-
-                    <a
-                      href="mailto:yolanda@northstarcreative.co.za?subject=North%20Star%20Creatives%20Enquiry"
-                      class="premium-button premium-button-light w-100 contact-button">
-
-
-                      <span>
-                        Start a Conversation
-                      </span>
-
-
-                      <span aria-hidden="true">
-                        ↗
-                      </span>
-
-
-                    </a>
-
-
-                  </div>
-
-
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-          </section>
-
- <p class="mb-2 text-center">
-             © 2026 Hydra Tech Solutions. All rights reserved.
-            </p>
-        </div>
 
       </div>
 
-    </main>
+
+
+      <div class="metric-item">
+
+
+        <span class="metric-number">
+          7
+        </span>
+
+
+        <span class="metric-label">
+          Established brands highlighted across her career
+        </span>
+
+
+      </div>
+
+
+
+      <div class="metric-item">
+
+
+        <span class="metric-number">
+          5
+        </span>
+
+
+        <span class="metric-label">
+          Core industry sectors of experience
+        </span>
+
+
+      </div>
+
+
+    </div>
+
 
   </div>
 
 
-
-  <!-- JAVASCRIPT -->
-
-  <script src="js/jquery-1.11.0.min.js"></script>
+</section>
 
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous">
-  </script>
+
+<!-- ==================================================
+     CONTACT
+=================================================== -->
+
+<section
+  id="contact"
+  class="section-space contact-section">
 
 
-  <script src="js/plugins.js"></script>
+  <div
+    class="contact-panel"
+    data-aos="fade-up"
+    data-aos-duration="1200">
 
-  <script src="js/script.js"></script>
+
+    <div class="row g-5 align-items-center">
+
+
+
+      <div class="col-lg-7">
+
+
+        <span class="section-kicker">
+          Let's Talk
+        </span>
+
+
+        <h2 class="display-1 contact-title">
+
+          Not louder.<br>
+          More aligned.<br>
+          More intentional.<br>
+
+          <span class="brand-gold">
+            More effective.
+          </span>
+
+        </h2>
+
+
+        <p class="lead contact-intro">
+
+          North Star Creatives is where
+          strategy meets storytelling,
+          and where brands find their direction.
+
+        </p>
+
+
+      </div>
+
+
+
+      <div class="col-lg-5">
+
+
+        <div class="contact-details">
+
+
+          <h3>
+            Start a conversation.
+          </h3>
+
+
+          <p class="contact-copy">
+
+            For project enquiries, partnerships
+            or strategic support, get in touch
+            with Yolanda.
+
+          </p>
+
+
+
+          <a
+            href="mailto:yolanda@northstarcreative.co.za"
+            class="contact-link">
+
+
+            <span>
+              Email
+            </span>
+
+
+            <span>
+              yolanda@northstarcreative.co.za
+            </span>
+
+
+          </a>
+
+
+
+          <a
+            href="tel:+27814119361"
+            class="contact-link">
+
+
+            <span>
+              Phone
+            </span>
+
+
+            <span>
+              +27 81 411 9361
+            </span>
+
+
+          </a>
+
+
+
+          <div class="contact-link no-link">
+
+
+            <span>
+              Location
+            </span>
+
+
+            <span>
+              Johannesburg, South Africa
+            </span>
+
+
+          </div>
+
+
+
+          <a
+            href="mailto:yolanda@northstarcreative.co.za?subject=North%20Star%20Creatives%20Enquiry"
+            class="premium-button premium-button-light w-100 contact-button">
+
+
+            <span>
+              Start a Conversation
+            </span>
+
+
+            <span aria-hidden="true">
+
+
+              <svg
+                class="north-arrow-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false">
+
+                <path d="M7 17L17 7"></path>
+                <path d="M8 7H17V16"></path>
+
+              </svg>
+
+
+            </span>
+
+
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<p class="mb-2 text-center">
+
+  © 2026 Hydra Tech Solutions. All rights reserved.
+
+</p>
+
+
+
+</div>
+</div>
+</main>
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+=================================================== -->
+
+<script src="js/jquery-1.11.0.min.js"></script>
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+  crossorigin="anonymous">
+</script>
+
+
+<script src="js/plugins.js"></script>
+
+<script src="js/script.js"></script>
 
 
 </body>
-
 </html>
