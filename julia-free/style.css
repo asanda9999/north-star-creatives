@@ -2329,31 +2329,12 @@ span:last-child {
 
 
 .leadership-heading {
+  max-width: 980px;
 
-  max-width:
-    980px;
+  margin-top: 1rem;
+  margin-bottom: 0;
 
-  margin-top:
-    1rem;
-
-  margin-bottom:
-    0;
-
-  color:
-    var(--north-green);
-
-  font-size:
-    clamp(4rem, 7vw, 7rem);
-
-  font-weight:
-    500;
-
-  line-height:
-    0.96;
-
-  letter-spacing:
-    -0.065em;
-
+  color: var(--north-green);
 }
 
 
@@ -2706,7 +2687,7 @@ span:last-child {
   overflow: hidden;
 
   background:
-    var(--north-white);
+    transparent;
 
 }
 
@@ -2736,16 +2717,12 @@ span:last-child {
   transition:
     transform 1.2s var(--premium-ease);
 
-}
-
-
-.industry-panel-wrap:hover
-.industry-panel-image {
-
-  transform:
-    scale(1.008);
+      background: transparent;
 
 }
+
+
+
 
 
 /* ============================================================
@@ -5429,6 +5406,127 @@ a.contact-link:hover {
   .sidebar-social-link svg {
     width: 15px;
     height: 15px;
+  }
+
+}
+
+/* ============================================================
+   INDUSTRY EXPERIENCE — CENTRED LAYOUT
+============================================================ */
+
+.leadership-experience {
+  display: block !important;
+  width: 100% !important;
+}
+
+
+/* Header */
+
+.experience-header {
+  width: 80% !important;
+  max-width: 900px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 3.5rem !important;
+
+  text-align: center;
+}
+
+
+/* Small gold heading */
+
+.experience-header .section-kicker {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* Main heading */
+
+.experience-title {
+  max-width: none;
+
+  margin-top: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+
+  text-align: center;
+
+  color: var(--north-green);
+
+  font-size: clamp(2rem, 3vw, 3.15rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+
+  white-space: nowrap;
+}
+
+
+/* Logo image */
+
+.industry-panel-wrap {
+  display: block !important;
+
+  width: 80% !important;
+  max-width: 900px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  float: none !important;
+  clear: both !important;
+}
+
+
+.industry-panel-image {
+  display: block;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  height: auto;
+
+  margin: 0 auto;
+}
+
+
+/* Tablet / mobile */
+
+@media (max-width: 991px) {
+
+  .experience-header,
+  .industry-panel-wrap {
+    width: 90% !important;
+  }
+
+  .experience-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+
+    /* wrapping is safer on smaller screens */
+    white-space: normal;
+  }
+
+}
+
+
+@media (max-width: 576px) {
+
+  .experience-header,
+  .industry-panel-wrap {
+    width: 100% !important;
+  }
+
+  .experience-header {
+    margin-bottom: 2.5rem !important;
+  }
+
+  .experience-title {
+    font-size: clamp(1.9rem, 9vw, 2.5rem);
+    line-height: 1.05;
   }
 
 }
